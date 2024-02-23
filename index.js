@@ -26,8 +26,9 @@ app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
 
-app.use((req, res) => {
-  console.log("hi iam middelwear from main");
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json("something went wrong");
 });
 
 app.listen(PORT, async () => {
