@@ -5,6 +5,7 @@ import authRoute from "./routes/auth.js";
 import hotelsRoute from "./routes/hotels.js";
 import roomsRoute from "./routes/rooms.js";
 import usersRoute from "./routes/users.js";
+import cookieParser from "cookie-parser";
 
 const PORT = 8800;
 const app = express();
@@ -19,8 +20,9 @@ const connect = async () => {
     process.exit(1); // Exit the process with a non-zero exit code
   }
 };
-
+app.use(cookieParser());
 app.use(express.json());
+
 app.use("/api/auth", authRoute);
 app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
