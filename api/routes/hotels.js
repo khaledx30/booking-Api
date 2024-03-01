@@ -6,13 +6,14 @@ import {
   getAll,
   upDate,
 } from "../controllers/hotel.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
-router.post("/", createHotel);
+router.post("/", verifyAdmin, createHotel);
 
-router.put("/:id", upDate);
+router.put("/:id", verifyAdmin, upDate);
 
-router.delete("/:id", findAnddelete);
+router.delete("/:id", verifyAdmin, findAnddelete);
 
 router.get("/:id", findById);
 

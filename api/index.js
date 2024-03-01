@@ -28,10 +28,10 @@ app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json("something went wrong");
-});
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json("something went wrong");
+// });
 
 app.listen(PORT, async () => {
   try {
